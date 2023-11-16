@@ -1,26 +1,44 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from "prop-types";
 //create your first component
-const Home = () => {
+
+const Home = (props) => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="row container bg-dark mx-auto justify-content-center">
+				<div className=" col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+				<FontAwesomeIcon icon={faClock} />
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.hundredThousandSecs}</p>
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.tenThousandSecs}</p>
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.thousandSecs}</p>
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.hundredSecs}</p>
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.tenSecs}</p>
+				</div>
+				<div className="col-1 text-white bg-secondary display-4 p-3 mx-2 rounded text-center">
+					<p>{props.seconds}</p>
+				</div>
 		</div>
 	);
+};
+
+Home.proptypes = {
+	seconds: PropTypes.number,
+	tenSecs: PropTypes.number,
+	hundredSecs: PropTypes.number,
+	thousandSecs: PropTypes.number,
+	tenThousandSecs: PropTypes.number,
+	hundredThousandSecs: PropTypes.number,
 };
 
 export default Home;
